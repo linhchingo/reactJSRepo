@@ -5,6 +5,7 @@ import About from './Components/About'
 import Contact from './Components/Contact'
 import NotFound from './Components/NotFound'
 import Course from './Components/Course'
+import PromptEx from './Components/PromptEx'
 
 const routes = [
     {
@@ -22,7 +23,11 @@ const routes = [
     },
     {
         path: "/course",
-        component: ({match}) => <Course match={match}/>
+        component: ({ match }) => <Course match={match} />
+    },
+    {
+        path: "/promptEx",
+        component: () => <PromptEx />
     },
     {
         component: () => <NotFound />

@@ -29,7 +29,8 @@ export default class Menu extends Component {
             { exact: true, to: '/', name: 'Home' },
             { exact: false, to: '/about', name: 'About' },
             { exact: false, to: '/contact', name: 'Contact' },
-            { exact: false, to: '/course', name: 'Course' }
+            { exact: false, to: '/course', name: 'Course' },
+            { exact: false, to: '/promptEx', name: 'PromptEx' },
         ]
 
         return (
