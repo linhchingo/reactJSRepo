@@ -5,6 +5,7 @@ import About from './Components/About'
 import Contact from './Components/Contact'
 import NotFound from './Components/NotFound'
 import Course from './Components/Course'
+import Login from './Components/Login'
 import PromptEx from './Components/PromptEx'
 
 const routes = [
@@ -20,6 +21,10 @@ const routes = [
     {
         path: "/contact",
         component: () => <Contact />
+    },
+    {
+        path: "/login",
+        component: () => <Login />
     },
     {
         path: "/course",
