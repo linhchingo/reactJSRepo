@@ -8,7 +8,9 @@ export default class componentName extends Component {
         this.state = {
             userName: '',
             passWord: '',
-            isSigned: true
+            isSigned: false,
+            defaulUserName: 'ltsan',
+            defaultPassword: '123456'
         };
     }
 
@@ -23,21 +25,51 @@ export default class componentName extends Component {
     }
 
     handleSubmit = (event) => {
-        toast.info('👌 Wow so easy!', {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-        });
+        const {
+            userName,
+            passWord,
+            defaulUserName,
+            defaultPassword,
+            isSigned
+        } = this.state
+        if (userName === defaulUserName && passWord === defaultPassword) {
+            this.setState({
+                userName: '',
+                passWord: '',
+                isSigned: true
+            })
+            localStorage.setItem('isLogin', isSigned)
+            toast.info('👌 Login is successfuly!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        } else {
+            this.setState({
+                passWord: '',
+            })
+            toast.error('💔 Username or password is correct!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        }
+
         event.preventDefault();
     }
 
     handleSubmitLogoutForm = (event) => {
+        const {isSigned} = this.state
         this.setState({
             isSigned: false
         })
+        localStorage.setItem('isLogin', isSigned)
         event.preventDefault();
     }
 
@@ -82,9 +114,9 @@ export default class componentName extends Component {
 
 
     render() {
-        const defaulUserName = 'ltsan'
-        const defaultPassword = '123456'
         const { isSigned } = this.state
+        console.log(isSigned);
+        
 
         return (
 
